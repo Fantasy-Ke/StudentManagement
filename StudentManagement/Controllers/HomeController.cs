@@ -16,10 +16,8 @@ namespace StudentManagement.Controllers
         }
         public IActionResult Deltis()
         {
-            ViewBag.Title = "学生视图123";
             ViewData["Model"]= _studentRepository.GetById(2);
             var student = _studentRepository.GetById(2);
-            var student1 = 2001;
             return View(student);
         }
     }
