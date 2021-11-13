@@ -1,22 +1,16 @@
-﻿@*@using StudentManagement.Models*@
-@model StudentManagement.Models.Student
-@{
-    
-    //ViewData["Model"] = model;
-}
-
+﻿@model StudentManagement.ViewModels.HomeDetailViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
 </head>
 <body>
-    <h1>@ViewBag.Title</h1>
+    <h1>@Model.PageTitle</h1>
     @{
         //var student = ViewData["Model"] as Student;
     }
-    <div>姓名：@Model.Name</div>
-    <div>班级：@Model.ClassName</div>
-    <div>邮箱：@Model.Email</div>
+    <div>姓名：@Model.Student.Name</div>
+    <div>班级：@Model.Student.ClassName</div>
+    <div>邮箱：@Model.Student.Email</div>
 </body>
 </html>
 

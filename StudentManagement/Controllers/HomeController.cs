@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentManagement.Models;
+using StudentManagement.ViewModels;
 
 namespace StudentManagement.Controllers
 {
@@ -16,9 +17,12 @@ namespace StudentManagement.Controllers
         }
         public IActionResult Deltis()
         {
-            ViewData["Model"]= _studentRepository.GetById(2);
-            var student = _studentRepository.GetById(2);
-            return View(student);
+            HomeDetailViewModel homeDetailsViewModel = new HomeDetailViewModel()
+            {
+                Student = _studentRepository.GetById(2),
+                PageTitle="学生试图"
+            };
+            return View(homeDetailsViewModel);
         }
     }
 }
