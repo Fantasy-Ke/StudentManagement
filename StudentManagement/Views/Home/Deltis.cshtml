@@ -1,17 +1,15 @@
 ﻿@model StudentManagement.ViewModels.HomeDetailViewModel
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>@Model.PageTitle</h1>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "学生详情页";
+}
+<h1>@Model.PageTitle</h1>
     @{
-        //var student = ViewData["Model"] as Student;
-    }
-    <div>姓名：@Model.Student.Name</div>
-    <div>班级：@Model.Student.ClassName</div>
-    <div>邮箱：@Model.Student.Email</div>
-</body>
-</html>
+    //var student = ViewData["Model"] as Student;
+} 
+<div>姓名：@Model.Student.Name</div>
+<div>班级：@Model.Student.ClassName</div>
+<div>邮箱：@Model.Student.Email</div>
+
 
 

@@ -7,14 +7,24 @@ namespace StudentManagement.Controllers
     public class HomeController : Controller
     {
         private readonly IStudentRepository _studentRepository;
+        
         public HomeController(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
         }
-        public string Index()
+        /// <summary>
+        /// 学生列表
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Index()
         {
-            return _studentRepository.GetById(2).Name;
+            var studentList= _studentRepository.GetAllStudents();
+            return View(studentList) ;
         }
+        /// <summary>
+        /// 详细信息
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Deltis()
         {
             HomeDetailViewModel homeDetailsViewModel = new HomeDetailViewModel()
