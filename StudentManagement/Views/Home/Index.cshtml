@@ -8,7 +8,6 @@
         <!-- 开始一个卡片 -->
         @foreach (var student in Model) {
             //var photoSrc = student.PhotoPath == null ? "~/images/nophoto.jpg" : $"~/uploads/images/{student.PhotoPath}";
-
             <div class="col mb-3 px-1">
                 <div class="card h-100 bg-light">
                     <a asp-controller="Student" asp-action="Details">
