@@ -6,13 +6,17 @@
 <div class="container">
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 mt-3">
         <!-- 开始一个卡片 -->
-        @foreach (var student in Model) {
-            //var photoSrc = student.PhotoPath == null ? "~/images/nophoto.jpg" : $"~/uploads/images/{student.PhotoPath}";
-
-            <div class="col mb-3 px-1">
+        @foreach (var student in Model)
+        {
+            var photoPath = "~/img/test_1.jpg";
+            if (@student.PhotoPath != null)
+            {
+                photoPath = "~/img/arrts/" + @student.PhotoPath;
+            }
+            <div class="col-lg-4 mb-3 px-1">
                 <div class="card h-100 bg-light">
-                    <a asp-controller="Student" asp-action="Details">
-                        <img src="~/img/test_2.jpg" asp-append-version="true" class="card-img-top" alt="...">
+                    <a asp-controller="Home" asp-action="Deltis" asp-route-id="@student.Id">
+                        <img src="@photoPath" asp-append-version="true" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body px-2 pb-2">
                         <h6 class="card-title my-n2">@student.Name</h6>
@@ -22,9 +26,10 @@
                             <span class="badge badge-danger ml-2">Id：@student.Id</span>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a class="card-link" asp-controller="student" asp-action="edit" asp-route-id="@student.Id">编辑</a>
-                        <a class="card-link text-danger" asp-controller="student" asp-action="details" asp-route-id="@student.Id">删除</a>
+                    <div class="card-footer text-center">
+                        <a class="card-link btn bg-primary" asp-controller="Home" asp-action="Deltis" asp-route-id="@student.Id" style="cursor:pointer">查看</a>
+                        <a class="card-link btn bg-primary" asp-controller="Home" asp-action="edit" asp-route-id="@student.Id" style="cursor:pointer">编辑</a>
+                        <a class="card-link btn bg-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@student.Id" style="cursor:pointer">删除</a>
                     </div>
                 </div>
             </div>
@@ -33,7 +38,7 @@
     </div>
 </div>
 
-    @section Scripts{
-        <script src="~/js/CustomScript.js"></script>
+@section Scripts{
+<script src="~/js/CustomScript.js"></script>
     }
 

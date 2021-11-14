@@ -12,12 +12,14 @@ namespace StudentManagement.Models
         {
             List<Student> students = new List<Student>
         {
-            new Student { Id=1, Name="小米", ClassName="红米", Email="hello1@deali.cn" },
-            new Student { Id=2, Name="华为", ClassName="荣耀", Email="hello2@deali.cn" },
-            new Student { Id=3, Name="oppo", ClassName="vivo", Email="hello3@deali.cn" },
+            new Student { Id=1, Name="小米", ClassName=ClassNameEnum.FirstGrade, Email="hello1@deali.cn" },
+            new Student { Id=2, Name="华为", ClassName=ClassNameEnum.SecondGrade, Email="hello2@deali.cn" },
+            new Student { Id=3, Name="oppo",ClassName=ClassNameEnum.GradeThree, Email="hello3@deali.cn" },
         };
             _students = students;
         }
+
+        
 
         public IEnumerable<Student> GetAllStudents()
         {
@@ -29,9 +31,32 @@ namespace StudentManagement.Models
             return _students.FirstOrDefault(a => a.Id == id);
         }
 
-        public void Save(Student student)
+        public Student Update(Student updatestudent)
         {
-            throw new NotImplementedException();
+            Student student = _students.FirstOrDefault(x => x.Id == updatestudent.Id);
+            if (student != null)
+            {
+                student.Name = updatestudent.Name;
+                student.ClassName = updatestudent.ClassName;
+                student.Email = updatestudent.Email;
+            }
+            return student;
+        }
+        public Student Create(Student student)
+        {
+            student.Id = _students.Max(x => x.Id) + 1;
+            _students.Add(student);
+            return student;
+        }
+
+        public Student Delete(int id)
+        {
+            Student student = _students.FirstOrDefault(x => x.Id == id);
+            if (student != null)
+            {
+                _students.Remove(student);
+            }
+            return student;
         }
     }
 }

@@ -1,6 +1,12 @@
-﻿@model HomeDetailViewModel
+﻿
+@model HomeDetailViewModel
 @{
     ViewBag.Title = "学生详情打扰页";
+    var photoPath = "~/img/test_1.jpg";
+    if (@Model.Student.PhotoPath != null)
+    {
+        photoPath = "~/img/arrts/"+@Model.Student.PhotoPath;
+    }
 }
 <div class="row justify-content-center m-3">
     <div class="col-sm-8">
@@ -9,7 +15,7 @@
                 <h1>@Model.Student.Name</h1>
             </div>
             <div class="card-body text-center">
-                <img src="~/img/test_1.jpg" alt="Alternate Text" class="card-img-top" style="width:600px;" asp-append-version="true"/>
+                <img src="@photoPath" alt="Alternate Text" class="card-img-top" style="" asp-append-version="true" />
             </div>
         </div>
     </div>
@@ -25,7 +31,13 @@
                 <li class="list-group-item">邮箱: @Model.Student.Email</li>
             </ul>
         </div>
+        <div class="card-footer text-center">
+            <a class="card-link btn bg-primary" asp-controller="Home" asp-action="Index" style="cursor:pointer">返回</a>
+            <a class="card-link btn bg-primary" asp-controller="Home" asp-action="edit" asp-route-id="@Model.Student.Id" style="cursor:pointer">编辑</a>
+            <a class="card-link  btn bg-danger" asp-controller="Home" asp-action="details" asp-route-id="@Model.Student.Id" style="cursor:pointer">删除</a>
+        </div>
     </div>
+
 </div>
 
 
