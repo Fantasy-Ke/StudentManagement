@@ -4,6 +4,7 @@ using StudentManagement.ViewModels;
 
 namespace StudentManagement.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly IStudentRepository _studentRepository;
@@ -25,11 +26,11 @@ namespace StudentManagement.Controllers
         /// 详细信息
         /// </summary>
         /// <returns></returns>
-        public IActionResult Deltis()
+        public IActionResult Deltis(int id)
         {
             HomeDetailViewModel homeDetailsViewModel = new HomeDetailViewModel()
             {
-                Student = _studentRepository.GetById(2),
+                Student = _studentRepository.GetById(id),
                 PageTitle="学生试图"
             };
             return View(homeDetailsViewModel);

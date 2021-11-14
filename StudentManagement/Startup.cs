@@ -38,6 +38,8 @@ namespace StudentManagement
 
             app.UseStaticFiles();
 
+            
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
