@@ -1,17 +1,4 @@
 ﻿﻿﻿﻿﻿﻿# Asp.Net Core 学习之MVC
-
-相关项目：[Asp.Net Core学习 WebApi版 图书馆管理系统](https://github.com/Deali-Axy/AspNetCore-Learning-WebApi)
-
-
-Asp.Net Core 学习笔记系列博客：
-
-- [Asp.Net Core学习笔记：入门篇](https://zhuanlan.zhihu.com/p/105443116)
-- [Asp.Net Core学习笔记：（二）视图、模型、持久化、文件、错误处理、日志](https://zhuanlan.zhihu.com/p/105953794)
-- [Asp.Net Core学习笔记：（三）使用SignalR实时通信框架开发聊天室](https://zhuanlan.zhihu.com/p/106321863)
-- [Asp.Net Core学习笔记：（四）Blazor WebAssembly入门](https://zhuanlan.zhihu.com/p/107262924)
-
-
-
 ## 常识
 
 像Django那样自动检查代码更新，自动重载服务器（太方便了）
